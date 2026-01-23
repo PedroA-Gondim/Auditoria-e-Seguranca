@@ -1,5 +1,5 @@
 # src/enc.py
-from src.utils import xor_listas
+from utils import xor_listas
 
 def ENC(K: list[int], M: list[int]) -> list[int]:
     """

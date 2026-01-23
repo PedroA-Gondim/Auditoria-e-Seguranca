@@ -1,5 +1,5 @@
 # src/dec.py
-from src.utils import xor_listas
+from utils import xor_listas
 
 def DEC(K: list[int], C: list[int]) -> list[int]:
     """
