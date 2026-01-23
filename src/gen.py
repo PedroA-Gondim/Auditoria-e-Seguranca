@@ -3,19 +3,24 @@ import random
 
 def GEN(seed: list[int]) -> list[int]:
     """
-    Recebe uma seed (lista binária) e gera uma chave K.
-    Requisito: len(K) deve ser 4 * len(seed).
+    Recebe uma seed (lista binária) e gera uma chave K pseudo-aleatória.
+    O tamanho de K será 4 vezes o tamanho da seed.
     """
     tamanho_alvo = 4 * len(seed)
-    key = []
     
-    # --- LOGICA TEMPORARIA PARA O ESQUELETO ---
-    # TODO: Implementar sua lógica determinística aqui.
-    # Por enquanto, vamos apenas repetir a seed e preencher o resto
-    # Nota: Para o trabalho final, use algo que dependa da seed matematicamente,
-    # senão o teste de confusão vai falhar.
+    # CONVERSÃO ROBUSTA: 
+    # Transforma a lista de bits [1, 0, 1] na string "101" e depois no inteiro 5.
+    # Isso evita que [0, 1] e [1, 0] gerem a mesma chave (colisão).
+    seed_string = "".join(str(b) for b in seed)
+    if not seed_string:
+        seed_int = 0
+    else:
+        seed_int = int(seed_string, 2)
     
-    random.seed(sum(seed)) # Inicializa o random com a soma da seed (simples)
+    # Inicializa o gerador com esse inteiro único
+    random.seed(seed_int)
+    
+    # Gera a chave
     key = [random.choice([0, 1]) for _ in range(tamanho_alvo)]
     
     return key
