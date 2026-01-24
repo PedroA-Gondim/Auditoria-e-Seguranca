@@ -66,6 +66,6 @@ O script gerará relatórios no terminal cobrindo os seguintes pontos:
 
 * **Disciplina**: Segurança e Auditoria de Sistemas
 
-* **Data**: 04/02/2026
+* **Data de entrega**: 04/02/2026
 
 ---
