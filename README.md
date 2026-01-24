@@ -48,9 +48,9 @@ python testes.py
 ```
 O script gerará relatórios no terminal cobrindo os seguintes pontos:
  1. **Tempo de Execução:** Mede o tempo médio de processamento das funções ENC e DEC em múltiplas execuções, visando a eficiência do algoritmo.
- 2. **Análise de Colisões (Chaves Equivalentes):** Verifica a integridade do espaço de chaves, garantindo que chaves diferentes ($K_1 \neq K_2$) não gerem a mesma cifra para uma mesma mensagem ($ENC(M, K_1) \neq ENC(M, K_2)$).
- 3. **Teste de Difusão (Avalanche na Mensagem):** Avalia o impacto da alteração de 1 bit na mensagem original ($M$).Métrica: Percentual de bits alterados na cifra ($C$). Objetivo: Aproximar-se de 50% de alteração para máxima difusão.
- 4. **Teste de Confusão (Avalanche na Seed/Chave):** Avalia o impacto da alteração de 1 bit na seed geradora da chave.Métrica: Percentual de bits alterados na cifra ($C$) mantendo a mensagem fixa.
+ 2. **Análise de Colisões (Chaves Equivalentes):** Verifica a integridade do espaço de chaves, garantindo que chaves diferentes ($K_1 \neq K_2$) não gerem a mesma cifra para uma mesma mensagem ($\text{ENC}(M, K_1) \neq \text{ENC}(M, K_2)$).
+ 3. **Teste de Difusão (Avalanche na Mensagem):** Avalia o impacto da alteração de 1 bit na mensagem original ($M$). Objetivo: Aproximar-se de 50% de alteração para máxima difusão.
+ 4. **Teste de Confusão (Avalanche na Seed/Chave):** Avalia o impacto da alteração de 1 bit na seed geradora da chave. 
 ---
 
 ### 📂 Estrutura de Arquivos
