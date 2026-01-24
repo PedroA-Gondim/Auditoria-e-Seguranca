@@ -68,7 +68,7 @@ def run():
         print("   → Resultado: APROVADO ✓")
         print("      O espaço de chaves apresenta comportamento seguro.")
     else:
-        print(f"   → Resultado: REPROVADO ✗")
+        print("   → Resultado: REPROVADO ✗")
         print(f"      {colisoes} chaves equivalentes detectadas.")
         print("      Recomendação: Aumentar entropia em GEN ou revisar ENC.")
     print("\n" + "=" * 60 + "\n")

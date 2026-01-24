@@ -37,7 +37,8 @@ def ENC(K: list[int], M: list[int]) -> list[int]:
         - Difusão: Dispersa a redundância da mensagem original
         - Determinismo: Permite decodificação consistente com a mesma chave
     """
-    if len(K) != len(M): raise ValueError("Erro de tamanho")
+    if len(K) != len(M):
+        raise ValueError("Erro de tamanho")
     
     # 1. XOR Inicial
     estado = xor_listas(M, K)

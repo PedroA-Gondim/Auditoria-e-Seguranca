@@ -44,7 +44,7 @@ def run():
     print("[Passo 3] Encriptação da Mensagem Base")
     print("-" * 60)
     cifra_original = ENC(chave, msg_bits_original)
-    print(f"Cifra original gerada\n")
+    print("Cifra original gerada\n")
 
     # Passo 4: CONFIGURAÇÃO DO TESTE DE DIFUSÃO
     print("[Passo 4] Configuração do Teste de Difusão")
@@ -81,7 +81,7 @@ def run():
     # Passo 6: ANÁLISE DOS RESULTADOS
     print("-" * 60)
     media_difusao = soma_diferencas / bits_testados
-    print(f"\n[Passo 6]: Análise dos Resultados")
+    print("\n[Passo 6]: Análise dos Resultados")
     print("-" * 60)
     print(f"Média de bits alterados por teste: {media_difusao:.2f} bits")
     print(f"Taxa de Difusão Média: {(media_difusao / total_bits) * 100:.2f}%")

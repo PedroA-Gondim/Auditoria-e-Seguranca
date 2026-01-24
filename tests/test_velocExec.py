@@ -25,7 +25,7 @@ def run():
     n_repeticoes = 10000
     seed = "BenchmarkSeed"
 
-    print(f"\n   [Passo 1] Preparação dos dados")
+    print("\n   [Passo 1] Preparação dos dados")
     print(f"   - Seed: {seed}")
     print(f"   - Iterações: {n_repeticoes}")
 
@@ -42,7 +42,7 @@ def run():
     # PASSO 4: Medição do tempo de criptografia (ENC)
     # Conceito: Mede o tempo de processamento para encriptar múltiplas vezes
     # sem I/O para evitar distorção dos resultados
-    print(f"\n   [Passo 2] Medindo tempo de criptografia (ENC)...")
+    print("\n   [Passo 2] Medindo tempo de criptografia (ENC)...")
     inicio_enc = time.perf_counter()
     for _ in range(n_repeticoes):
         C = ENC(K, M)
@@ -51,7 +51,7 @@ def run():
     # PASSO 5: Medição do tempo de descriptografia (DEC)
     # Conceito: Usa o criptograma C da última iteração para medir DEC
     # Garante que o texto cifrado é válido e consistente
-    print(f"   [Passo 3] Medindo tempo de descriptografia (DEC)...")
+    print("   [Passo 3] Medindo tempo de descriptografia (DEC)...")
     inicio_dec = time.perf_counter()
     for _ in range(n_repeticoes):
         _ = DEC(K, C)
@@ -62,7 +62,7 @@ def run():
     media_dec = (fim_dec - inicio_dec) / n_repeticoes
 
     # PASSO 7: Apresentação dos resultados
-    print(f"\n   [Passo 4] Resultados do Benchmark")
+    print("\n   [Passo 4] Resultados do Benchmark")
     print(f"   Tempo Médio ENC: {media_enc * 1000:.6f} ms")
     print(f"   Tempo Médio DEC: {media_dec * 1000:.6f} ms")
     print(f"   Tempo Total: {(media_enc + media_dec) * 1000:.6f} ms")

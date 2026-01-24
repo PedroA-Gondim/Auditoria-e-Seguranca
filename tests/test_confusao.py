@@ -76,7 +76,7 @@ def run():
     limite_teste = min(50, len(seed_bits_original))
 
     print(f"Limites de teste: primeiros {limite_teste} bits da seed")
-    print(f"Métrica: Contar bits diferentes no criptograma\n")
+    print("Métrica: Contar bits diferentes no criptograma\n")
 
     # ========== Passo 5: BATERIA DE TESTES (CONFUSÃO) ==========
     print("[Passo 5] Execução dos Testes de Confusão")
