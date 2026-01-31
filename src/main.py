@@ -16,6 +16,8 @@ def main():
 
     # ETAPA 1: ENTRADA DE DADOS E CONVERSÃO PARA REPRESENTAÇÃO BINÁRIA
     texto_seed = input("Digite a seed (texto): ")
+    num1_seed = input("Digite um número inteiro para a seed: ")
+    num2_seed = input("Digite outro número inteiro para a seed: ")
     seed_bits = texto_para_binario(texto_seed)
 
     # A mensagem a ser protegida é convertida para binário.
@@ -24,7 +26,7 @@ def main():
     msg_bits_original = texto_para_binario(texto_msg)
 
     # ETAPA 2: GERAÇÃO DA CHAVE
-    K = GEN(seed_bits)
+    K, nome, estrelas = GEN(seed_bits, int(num1_seed), int(num2_seed))
 
     # ETAPA 3: PREENCHIMENTO DA MENSAGEM (PADDING)
     # Conceito: Para aplicar XOR bit a bit, mensagem e chave devem ter tamanho igual.
@@ -35,6 +37,9 @@ def main():
     # EXIBIÇÃO DE INFORMAÇÕES SOBRE O PROCESSAMENTO
     print("1. Resumo dos Tamanhos em Bits:")
     print(f"   Seed: {len(seed_bits)} bits")
+    print(f"Entrada Usuário: Champ={num1_seed}, Estrelas={num2_seed}")
+    print(f"Sistema Interpretou: Champ='{nome}', Estrelas={estrelas}")
+    print(f"Chave gerada com sucesso! (Len: {len(K)}) bits")
     print(f"   Chave Expandida (4x): {len(K)} bits")
     print(f"   Mensagem Original: {len(msg_bits_original)} bits")
     print(f"   Mensagem com Padding: {len(msg_bits_pad)} bits")
