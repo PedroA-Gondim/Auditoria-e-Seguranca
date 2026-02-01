@@ -2,60 +2,43 @@
 import sys
 import os
 
-# Correção de caminho
+# Adiciona o diretório raiz ao caminho
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.gen import GEN
 from src.enc import ENC
 from src.dec import DEC
-from src.utils import texto_para_binario, binario_para_texto, ajustar_tamanho_msg
 
 
 def main():
-    print("=== Trabalho de Criptografia Simplificada ===\n")
+    print("=== Trabalho de Criptografia Baseada em Campeões do TFT ===\n")
 
-    # ETAPA 1: ENTRADA DE DADOS E CONVERSÃO PARA REPRESENTAÇÃO BINÁRIA
+    # Entrada de dados
     texto_seed = input("Digite a seed (texto): ")
-    num1_seed = input("Digite um número inteiro para a seed: ")
-    num2_seed = input("Digite outro número inteiro para a seed: ")
-    seed_bits = texto_para_binario(texto_seed)
-
-    # A mensagem a ser protegida é convertida para binário.
-    # Esta é a informação sensível que será cifrada usando XOR.
+    num1_seed = input("Digite um número inteiro para a escolha do campeão: ")
+    num2_seed = input("Digite outro número inteiro para a quantidade de estrelas: ")
     texto_msg = input("Digite a mensagem a ser criptografada: ")
-    msg_bits_original = texto_para_binario(texto_msg)
 
-    # ETAPA 2: GERAÇÃO DA CHAVE
-    K, nome, estrelas = GEN(seed_bits, int(num1_seed), int(num2_seed))
+    # Geração da chave
+    K, nome, estrelas = GEN(texto_seed, int(num1_seed), int(num2_seed))
 
-    # ETAPA 3: PREENCHIMENTO DA MENSAGEM (PADDING)
-    # Conceito: Para aplicar XOR bit a bit, mensagem e chave devem ter tamanho igual.
-    # Caso contrário, não há bits de chave suficientes para cifrar toda a mensagem.
-    # Solução: Adicionar bits de preenchimento (padding) ao final da mensagem.
-    msg_bits_pad = ajustar_tamanho_msg(msg_bits_original, len(K))
+    # Exibição de informações
+    print(f"Entrada Usuário: Campeão={num1_seed}, Estrelas={num2_seed}")
+    print(f"Sistema Interpretou: Campeão='{nome}', Estrelas={estrelas}")
+    print("Chave gerada com sucesso!")
+    print(f"   Tamanho original da seed: {len(texto_seed) * 8} bits")
+    print(f"   Chave expandida (4x): {len(K)} bits")
+    print(f"   Mensagem original: {texto_msg}")
 
-    # EXIBIÇÃO DE INFORMAÇÕES SOBRE O PROCESSAMENTO
-    print("1. Resumo dos Tamanhos em Bits:")
-    print(f"   Seed: {len(seed_bits)} bits")
-    print(f"Entrada Usuário: Champ={num1_seed}, Estrelas={num2_seed}")
-    print(f"Sistema Interpretou: Champ='{nome}', Estrelas={estrelas}")
-    print(f"Chave gerada com sucesso! (Len: {len(K)}) bits")
-    print(f"   Chave Expandida (4x): {len(K)} bits")
-    print(f"   Mensagem Original: {len(msg_bits_original)} bits")
-    print(f"   Mensagem com Padding: {len(msg_bits_pad)} bits")
+    # Criptografia
+    C = ENC(K, texto_msg)
+    print("\nTexto cifrado:")
+    print("".join(map(str, C)))
 
-    # ETAPA 4: CIFRA (ENCRYPTION) - APLICAÇÃO DO ALGORITMO XOR
-    C = ENC(K, msg_bits_pad)
-    print("\n2. Texto Cifrado (primeiros 50 bits):")
-    print("".join(map(str, C[:50])) + "...")
-
-    # ETAPA 5: DECIFRAGEM (DECRYPTION) - RECUPERAÇÃO DA MENSAGEM ORIGINAL
-    M_recuperada_bits = DEC(K, C)
-    texto_recuperado = binario_para_texto(M_recuperada_bits)
-
-    print("\n3. Resultado da Decifragem:")
-    print(f"   Mensagem Recuperada: '{texto_recuperado}'")
-    print("\nNota: Bytes de padding (nulos) podem aparecer no final da mensagem.")
+    # Descriptografia
+    M_recuperada = DEC(K, C)
+    print("\nResultado da descriptografia:")
+    print(f"   Mensagem recuperada: '{M_recuperada}'")
 
 
 if __name__ == "__main__":

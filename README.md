@@ -39,6 +39,24 @@ Isso executará um cenário de demonstração validando se a mensagem descriptog
 
 ---
 
+## 🧠 Arquitetura do Algoritmo
+
+O projeto implementa uma criptografia simétrica determinística baseada na temática de TFT (Teamfight Tactics). Abaixo estão os fluxos de funcionamento dos módulos principais.
+
+### 1. Geração de Chaves (GEN)
+O algoritmo `GEN` cria chaves determinísticas expandindo uma "seed" (senha) e aplicando transformações baseadas em inputs do usuário (Campeão e Estrelas).
+![Fluxo do Gerador de Chaves](docs/GEN.png)
+
+### 2. Encriptação (ENC)
+O processo de encriptação utiliza uma rede SPN (Substitution-Permutation Network) simplificada com **2 rodadas**, garantindo Confusão (S-Box) e Difusão (Propagação Bidirecional + Transposição).
+![Fluxo de Encriptação](docs/ENC.png)
+
+### 3. Descriptação (DEC)
+O módulo `DEC` reverte matematicamente cada etapa da encriptação na ordem inversa (LIFO - Last In, First Out), recuperando a mensagem original sem perda de dados.
+![Fluxo de Descriptação](docs/DEC.png)
+
+---
+
 ### 📊 Testes e Métricas de Avaliação
 O projeto inclui um script automatizado (testes.py) para validar os critérios de qualidade exigidos na especificação.
 
