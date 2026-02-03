@@ -1,3 +1,9 @@
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+
 from src.utils import texto_para_binario
 
 TFT_SBOX = [12, 5, 6, 11, 9, 0, 10, 13, 3, 14, 15, 8, 4, 7, 1, 2]
@@ -183,7 +189,7 @@ def rotacionar_bits(bits, n):
     return bits[n:] + bits[:n]
 
 
-def GEN(seed_frase, input_champ, input_stars):
+def GEN(seed_frase, input_champ=0, input_stars=1):
     """
     Gera a chave final K usando princípios de Confusão e Difusão (como no DES).
 

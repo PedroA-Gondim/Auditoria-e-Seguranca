@@ -57,9 +57,9 @@ def run():
     print(f"\n   Colisões encontradas: {colisoes}")
 
     if colisoes == 0:
-        print("   → Resultado: APROVADO ✓")
+        print("   → Resultado: APROVADO ")
     else:
-        print(f"   → Resultado: REPROVADO ✗ ({colisoes} colisões)")
+        print(f"   → Resultado: REPROVADO ({colisoes} colisões)")
     print("\n" + "=" * 60 + "\n")
 
 

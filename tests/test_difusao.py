@@ -77,12 +77,6 @@ def run():
     print(f"Média de bits alterados: {media:.2f}")
     print(f"Taxa de Difusão Média: {perc_media:.2f}%")
 
-    # Interpretação dos resultados
-    if 40 < perc_media < 60:
-        print("\nINTERPRETAÇÃO: EXCELENTE. O efeito avalanche está próximo de 50%.")
-    else:
-        print("\nINTERPRETAÇÃO: ATENÇÃO. Valores longe de 50% indicam viés.")
-
     print("\n" + "=" * 60 + "\n")
 
 

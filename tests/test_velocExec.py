@@ -68,15 +68,6 @@ def run():
     print(f"   Tempo Médio DEC: {media_dec * 1000:.6f} ms")
     print(f"   Tempo Total: {(media_enc + media_dec) * 1000:.6f} ms")
 
-    # Classifica o desempenho da criptografia
-    if media_enc < 0.01:
-        classificacao = "EXCELENTE"
-    elif media_enc < 0.05:
-        classificacao = "BOM"
-    else:
-        classificacao = "ACEITÁVEL"
-
-    print(f"   -> Classificação: Desempenho {classificacao}.")
     print("\n" + "=" * 60 + "\n")
 
 

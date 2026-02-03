@@ -1,5 +1,8 @@
 # src/utils.py
+import os
+import sys
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 def texto_para_binario(texto: str) -> list[int]:
     """Converte string para lista de bits (ASCII 8 bits)."""

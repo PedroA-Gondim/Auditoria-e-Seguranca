@@ -80,11 +80,6 @@ def run():
     print("\n" + "-" * 60)
     print(f"Média de Confusão Global: {media_confusao:.2f}%")
 
-    # Resultado final baseado na média de confusão
-    if media_confusao > 45:
-        print("RESULTADO: APROVADO (Alta sensibilidade a mudanças)")
-    else:
-        print("RESULTADO: ALERTA (Confusão abaixo do esperado)")
     print("=" * 60 + "\n")
 
 
