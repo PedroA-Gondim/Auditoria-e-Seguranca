@@ -19,11 +19,14 @@ def main():
     num2_seed = input("Digite outro número inteiro para a quantidade de estrelas: ")
     texto_msg = input("Digite a mensagem a ser criptografada: ")
 
+    champ_val = int(num1_seed) if num1_seed.strip() else 0
+    stars_val = int(num2_seed) if num2_seed.strip() else 1
+
     # Geração da chave
-    K, nome, estrelas = GEN(texto_seed, int(num1_seed), int(num2_seed))
+    K, nome, estrelas = GEN(texto_seed, int(champ_val), int(stars_val))
 
     # Exibição de informações
-    print(f"Entrada Usuário: Campeão={num1_seed}, Estrelas={num2_seed}")
+    print(f"Entrada Usuário: Campeão={champ_val}, Estrelas={stars_val}")
     print(f"Sistema Interpretou: Campeão='{nome}', Estrelas={estrelas}")
     print("Chave gerada com sucesso!")
     print(f"   Tamanho original da seed: {len(texto_seed) * 8} bits")
