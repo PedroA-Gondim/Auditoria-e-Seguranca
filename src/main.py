@@ -189,7 +189,7 @@ def rotacionar_bits(bits, n):
     return bits[n:] + bits[:n]
 
 
-def GEN(seed_frase, input_champ=0, input_stars=1):
+def GEN(seed_frase:list[int], input_champ=0, input_stars=1):
     """
     Gera a chave final K usando princípios de Confusão e Difusão (como no DES).
 
@@ -229,8 +229,8 @@ def GEN(seed_frase, input_champ=0, input_stars=1):
         estado.extend(seed_final)
     estado = estado[:tamanho_chave]
 
-    # ETAPA 3: Rodadas de processamento (4 rodadas)
-    numero_rodadas = 4
+    # ETAPA 3: Rodadas de processamento (2 rodadas)
+    numero_rodadas = 2
 
     for round_num in range(numero_rodadas):
         # PASSO A: Mistura com constante que varia a cada rodada
@@ -591,5 +591,6 @@ def ajustar_tamanho_msg(msg: list[int], tamanho_alvo: int) -> list[int]:
         # Corta o excesso
 
         return msg[:tamanho_alvo]
+
 
 
