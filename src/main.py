@@ -213,7 +213,7 @@ def GEN(seed_frase, input_champ=0, input_stars=1):
     nome_champ = TFT_CHAMPIONS[champ_index]
 
     # ETAPA 1: Prepara a seed inicial
-    seed_bits = texto_para_binario(seed_frase)
+    seed_bits = seed_frase
     tft_bits = gerar_bits_tft(champ_index + 1, stars_val)
     seed_final = combinar_seed(seed_bits, tft_bits)
 
@@ -317,7 +317,7 @@ def transposicao_colunar(bits, num_colunas=4):
     return saida
 
 
-def ENC(K: list[int], mensagem_texto: str) -> list[int]:
+def ENC(K: list[int],M: list[int]  ) -> list[int]:
     """
     ENCRIPTAÇÃO SPN FORTALECIDA com 2 Rodadas e Propagação Bidirecional.
 
@@ -333,7 +333,7 @@ def ENC(K: list[int], mensagem_texto: str) -> list[int]:
     Retorna: Lista de bits criptografados
     """
     # Converte o texto em bits
-    M = texto_para_binario(mensagem_texto)
+    #M = texto_para_binario(mensagem_texto)
 
     # Ajusta o tamanho da mensagem para corresponder à chave
     M = ajustar_tamanho_msg(M, len(K))
@@ -591,4 +591,5 @@ def ajustar_tamanho_msg(msg: list[int], tamanho_alvo: int) -> list[int]:
         # Corta o excesso
 
         return msg[:tamanho_alvo]
+
 
